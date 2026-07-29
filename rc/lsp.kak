@@ -689,7 +689,7 @@ define-command -hidden lsp-if-changed-since -params 3 -docstring %{
 define-command -hidden lsp-send-buffer -params 1 %{
     evaluate-commands -save-regs a %{
         try %{
-            unset-option window finaleol # TODO remove this
+            try %{ unset-option window finaleol } # TODO remove this
             set-register a %opt{finaleol}
             set-option buffer finaleol present
         }
